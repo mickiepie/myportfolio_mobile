@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 class ItemHomepage {
   final String name;
   final IconData icon;
+  final Color color;
 
-  ItemHomepage(this.name, this.icon);
+  ItemHomepage(this.name, this.icon, this.color);
 }
 
 // Widget Reusable: Kartu Profil Burhan
@@ -46,7 +47,7 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Theme.of(context).colorScheme.secondary,
+      color: item.color,
       borderRadius: BorderRadius.circular(12),
       child: InkWell(
         onTap: () {
@@ -64,14 +65,14 @@ class ItemCard extends StatelessWidget {
               children: [
                 Icon(
                   item.icon,
-                  color: Colors.white,
+                  color: item.name== "Tambah Proyek" ? Colors.black:Colors.white,
                   size: 30.0,
                 ),
-                const Padding(padding: EdgeInsets.all(3)),
+                const Padding(padding: EdgeInsets.all(4)),
                 Text(
                   item.name,
                   textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.white),
+                  style: TextStyle(color: item.name == "Tambah Proyek" ? Colors.black : Colors.white, fontWeight: FontWeight.bold,),
                 ),
               ],
             ),
@@ -86,14 +87,14 @@ class ItemCard extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
 
-  final String npm = "2406000001";
-  final String nama = "Burhan";
+  final String npm = "2506543905";
+  final String nama = "Ria Lavenia Kharissa";
   final String kelas = "PBP A";
 
   final List<ItemHomepage> items = [
-    ItemHomepage("Lihat Proyek", Icons.folder),
-    ItemHomepage("Tambah Proyek", Icons.add_circle),
-    ItemHomepage("Logout", Icons.logout),
+    ItemHomepage("Lihat Proyek", Icons.folder, Colors.black),
+    ItemHomepage("Tambah Proyek", Icons.add_circle, Colors.white),
+    ItemHomepage("Logout", Icons.logout, Colors.red),
   ];
 
   @override

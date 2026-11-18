@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:myportfolio_mobile/widgets/left_drawer.dart';
+import 'package:myportfolio_mobile/widgets/project_card.dart';
 
-// Model tombol menu
-class ItemHomepage {
-  final String name;
-  final IconData icon;
-  final Color color;
-
-  ItemHomepage(this.name, this.icon, this.color);
-}
-
-// Widget Reusable: Kartu Profil Burhan
+// Widget Reusable: Kartu Profil
 class InfoCard extends StatelessWidget {
   final String title;
   final String content;
@@ -32,51 +25,6 @@ class InfoCard extends StatelessWidget {
             const SizedBox(height: 8.0),
             Text(content),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-// Widget Reusable: Kartu Tombol Berikon
-class ItemCard extends StatelessWidget {
-  final ItemHomepage item;
-
-  const ItemCard(this.item, {super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: item.color,
-      borderRadius: BorderRadius.circular(12),
-      child: InkWell(
-        onTap: () {
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(
-              SnackBar(content: Text("Kamu telah menekan tombol ${item.name}!")),
-            );
-        },
-        child: Container(
-          padding: const EdgeInsets.all(8),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  item.icon,
-                  color: item.name== "Tambah Proyek" ? Colors.black:Colors.white,
-                  size: 30.0,
-                ),
-                const Padding(padding: EdgeInsets.all(4)),
-                Text(
-                  item.name,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: item.name == "Tambah Proyek" ? Colors.black : Colors.white, fontWeight: FontWeight.bold,),
-                ),
-              ],
-            ),
-          ),
         ),
       ),
     );
@@ -109,7 +57,9 @@ class MyHomePage extends StatelessWidget {
           ),
         ),
         backgroundColor: Theme.of(context).colorScheme.primary,
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
+      drawer: const LeftDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

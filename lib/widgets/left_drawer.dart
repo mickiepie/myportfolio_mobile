@@ -1,6 +1,8 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:myportfolio_mobile/screens/project_form.dart';
 import 'package:myportfolio_mobile/screens/menu.dart';
+import 'package:myportfolio_mobile/screens/experience_form.dart';
+import 'package:myportfolio_mobile/theme/app_theme.dart';
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -12,7 +14,7 @@ class LeftDrawer extends StatelessWidget {
         children: [
           const DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.indigo,
+              color: AppColors.pastelYellow,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,7 +24,7 @@ class LeftDrawer extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: AppColors.textDark,
                   ),
                 ),
                 SizedBox(height: 10),
@@ -30,7 +32,7 @@ class LeftDrawer extends StatelessWidget {
                   'Explore personal projects and experiences!',
                   style: TextStyle(
                     fontSize: 15,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 ),
               ],
@@ -60,6 +62,16 @@ class LeftDrawer extends StatelessWidget {
               );
             },
           ),
+          ListTile(
+            leading: const Icon(Icons.work_outline),
+            title: const Text('Add Experience'),
+            onTap:(){
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const ExperienceFormPage(),),
+              );
+            }
+          )
         ],
       ),
     );

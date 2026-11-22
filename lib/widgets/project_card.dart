@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:myportfolio_mobile/screens/project_form.dart';
-
+import 'package:myportfolio_mobile/screens/experience_form.dart';
 // Model tombol menu
 class ItemHomepage {
   final String name;
@@ -35,6 +35,13 @@ class ItemCard extends StatelessWidget {
                 builder: (context) => const ProjectFormPage(),
               ),
             );
+          } else if (item.name == "Tambah Pengalaman") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ExperienceFormPage(),
+              ),
+            );
           }
         },
         child: Container(
@@ -45,7 +52,7 @@ class ItemCard extends StatelessWidget {
               children: [
                 Icon(
                   item.icon,
-                  color: item.name == "Tambah Proyek" ? Colors.black : Colors.white,
+                  color: const Color(0xFF0A0A0D),
                   size: 30.0,
                 ),
                 const Padding(padding: EdgeInsets.all(4)),
@@ -53,7 +60,7 @@ class ItemCard extends StatelessWidget {
                   item.name,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: item.name == "Tambah Proyek" ? Colors.black : Colors.white,
+                    color: Color(0xFF0A0A0D),
                     fontWeight: FontWeight.bold,
                   ),
                 ),

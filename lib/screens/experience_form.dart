@@ -93,9 +93,7 @@ class _ExperienceFormPageState extends State<ExperienceFormPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
-          child: Text('Add Experience Form'),
-        ),
+        title: const Center(child: Text('Add Experience Form')),
         backgroundColor: primaryColor,
         foregroundColor: Colors.white,
       ),
@@ -175,10 +173,12 @@ class _ExperienceFormPageState extends State<ExperienceFormPage> {
                   ),
                   initialValue: _category,
                   items: _categories
-                      .map((category) => DropdownMenuItem(
-                            value: category,
-                            child: Text(category),
-                          ))
+                      .map(
+                        (category) => DropdownMenuItem(
+                          value: category,
+                          child: Text(category),
+                        ),
+                      )
                       .toList(),
                   onChanged: (String? newValue) {
                     setState(() {
@@ -230,7 +230,9 @@ class _ExperienceFormPageState extends State<ExperienceFormPage> {
                   ),
                   onTap: () => _pickDate(isStart: true),
                   validator: (String? value) {
-                    if (value == null || value.trim().isEmpty || _startedAt == null) {
+                    if (value == null ||
+                        value.trim().isEmpty ||
+                        _startedAt == null) {
                       return "Tanggal mulai wajib dipilih!";
                     }
                     return null;
@@ -310,7 +312,9 @@ class _ExperienceFormPageState extends State<ExperienceFormPage> {
                           context: context,
                           builder: (context) {
                             return AlertDialog(
-                              title: const Text('Pengalaman berhasil disimpan!'),
+                              title: const Text(
+                                'Pengalaman berhasil disimpan!',
+                              ),
                               content: SingleChildScrollView(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,

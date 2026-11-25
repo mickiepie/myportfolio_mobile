@@ -5,7 +5,6 @@ class AppColors {
   static const Color surface = Color(0xFF1C1D21);
   static const Color drawerBg = Color(0xFF16171A);
 
-  
   static const Color pastelYellow = Color(0xFFF9F568);
   static const Color pastelGreen = Color(0xFF9EE5A5);
   static const Color pastelBlue = Color(0xFFB2E4FA);
@@ -31,9 +30,11 @@ class AppTheme {
         surface: AppColors.surface,
       ),
       appBarTheme: const AppBarTheme(
-        backgroundColor: AppColors.pastelYellow, 
-        foregroundColor: AppColors.textDark,     
-        iconTheme: IconThemeData(color: AppColors.textDark), // Ikon drawer hitam
+        backgroundColor: AppColors.pastelYellow,
+        foregroundColor: AppColors.textDark,
+        iconTheme: IconThemeData(
+          color: AppColors.textDark,
+        ), // Ikon drawer hitam
         elevation: 0,
         titleTextStyle: TextStyle(
           color: AppColors.textDark,
@@ -41,9 +42,7 @@ class AppTheme {
           fontWeight: FontWeight.bold,
         ),
       ),
-      drawerTheme: const DrawerThemeData(
-        backgroundColor: AppColors.drawerBg,
-      ),
+      drawerTheme: const DrawerThemeData(backgroundColor: AppColors.drawerBg),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: AppColors.surface,
@@ -57,7 +56,10 @@ class AppTheme {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14.0),
-          borderSide: const BorderSide(color: AppColors.pastelYellow, width: 1.5),
+          borderSide: const BorderSide(
+            color: AppColors.pastelYellow,
+            width: 1.5,
+          ),
         ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
